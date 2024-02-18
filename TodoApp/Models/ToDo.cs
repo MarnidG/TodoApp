@@ -12,14 +12,18 @@ namespace TodoApp.Models
         [Required(ErrorMessage = "Proszę dodać opis.")]
         public string Opis { get; set; }
 
+        [Display(Name ="Data")]
         [Required(ErrorMessage = "Proszę podać datę.")]
         public DateTime DueDate { get; set; }
 
+        [Display(Name = "Kategoria")]
         [Required(ErrorMessage = "Proszę wybierz kategorię.")]
         public int CategoryId { get; set; }
-        
+
+        [Display(Name = "Kategoria")]
         public virtual Category? Category { get; set; }
 
+        [Display(Name = "Status")]
         [Required(ErrorMessage = "Proszę wybierz status.")]
         public int StatusId {  get; set; }
         

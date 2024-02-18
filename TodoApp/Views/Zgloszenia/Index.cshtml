@@ -15,7 +15,7 @@
 @if(User.IsInRole("Admin"))
 {
 <div class="create-button">
-    <a asp-action="Create">Create</a>
+    <a asp-action="Create">Stworz ogloszenie</a>
 </div>
 }
 <h2>Ogłoszenia</h2>
@@ -24,7 +24,7 @@
 {
     <div class="advertisement-container">
         <h4>@ad.Title</h4>
-        <a asp-action="Details" asp-route-id="@ad.Id">Details</a>
+        <a asp-action="Details" asp-route-id="@ad.Id">Szczegoly</a>
     </div>
 }
 

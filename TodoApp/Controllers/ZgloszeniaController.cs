@@ -15,9 +15,12 @@ public class ZgloszeniaController : Controller
 
     public IActionResult Index()
     {
-        var Zgloszenia = _context.Zgloszenia.ToList();
+
+        var Zgloszenia = _context.Zgloszenia.OrderByDescending(x=>x.Id).ToList();
         return View(Zgloszenia);
     }
+
+    //Tworzenie zgloszen przez Admina
     [Authorize(Roles = "Admin")]
     public IActionResult Create()
     {
@@ -38,6 +41,7 @@ public class ZgloszeniaController : Controller
         return View(model);
     }
 
+    //Szczegoly postu
     public IActionResult Details(int id)
     {
         var Zgloszenia = _context.Zgloszenia.FirstOrDefault(a => a.Id == id);

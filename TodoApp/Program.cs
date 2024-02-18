@@ -24,7 +24,6 @@ public class Program
 
         var app = builder.Build();
 
-        // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
         {
             app.UseMigrationsEndPoint();
@@ -32,7 +31,6 @@ public class Program
         else
         {
             app.UseExceptionHandler("/Home/Error");
-            // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
             app.UseHsts();
         }
 
@@ -47,6 +45,7 @@ public class Program
             name: "default",
             pattern: "{controller=ToDo}/{action=Index}");
 
+        // Tworzenie roli admina
         using(var scope = app.Services.CreateScope())
         {
             var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
@@ -59,6 +58,7 @@ public class Program
             }
         }
 
+        //Tworzenie konto admina
         using (var scope = app.Services.CreateScope())
         {
             var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
