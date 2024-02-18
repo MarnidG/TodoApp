@@ -1,0 +1,30 @@
+﻿@model List<Zgloszenia>
+
+<style>
+    .advertisement-container {
+        border: 1px solid #ddd;
+        padding: 15px;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    .create-button {
+        margin-top: 15px;
+    }
+</style>
+@if(User.IsInRole("Admin"))
+{
+<div class="create-button">
+    <a asp-action="Create">Create</a>
+</div>
+}
+<h2>Ogłoszenia</h2>
+
+@foreach (var ad in Model)
+{
+    <div class="advertisement-container">
+        <h4>@ad.Title</h4>
+        <a asp-action="Details" asp-route-id="@ad.Id">Details</a>
+    </div>
+}
+
