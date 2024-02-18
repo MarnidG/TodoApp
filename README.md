@@ -1,4 +1,4 @@
-By uruchomic projekt nalezy zrobić add-migration i update-database
+By uruchomic projekt nalezy zrobić update-database
 
 pasy do admina
 login admin@admin.com
