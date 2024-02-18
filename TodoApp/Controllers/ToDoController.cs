@@ -36,8 +36,6 @@ namespace TodoApp.Controllers
 
             ViewData["Categories"] = new SelectList(_context.Categories, "Id", "Name", CategoryId);
             ViewData["Statuses"] = new SelectList(_context.Statuses, "Id", "Name",StatusId);
-            // ViewBag.Categories = _context.Categories.ToList();
-            // ViewBag.Statuses = _context.Statuses.ToList();
             
             if (CategoryId != 1)
             {
@@ -61,8 +59,7 @@ namespace TodoApp.Controllers
         }
 
         // POST: ToDo/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Opis,DueDate,CategoryId,StatusId,userId")] ToDo toDo)
@@ -105,8 +102,7 @@ namespace TodoApp.Controllers
         }
 
         // POST: ToDo/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Opis,DueDate,CategoryId,StatusId")] ToDo toDo)

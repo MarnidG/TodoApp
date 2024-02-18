@@ -32,6 +32,5 @@ namespace TodoApp.Models
         [ValidateNever]
         public string userId { get; set; }
         
-        // public bool Overdue => StatusId == "open" && DueDate < DateTime.Today;
     }
 }
